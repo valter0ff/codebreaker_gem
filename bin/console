@@ -17,5 +17,5 @@ game.setup_difficulty('easy')
 game.setup_user_guess('1234')
 Pry.start(game)
 
-#require 'irb'
-#IRB.start(__FILE__)
+# require 'irb'
+# IRB.start(__FILE__)

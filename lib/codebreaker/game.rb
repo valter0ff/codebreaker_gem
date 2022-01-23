@@ -9,7 +9,7 @@ module Codebreaker
 
     def create_game_params
       @secret_code.clear
-      Validations::CODE_SIZE.times { @secret_code.push(rand(1..6)) }
+      Validations::CODE_SIZE.times { @secret_code.push(rand(Validations::MIN_DIGIT..Validations::MAX_DIGIT)) }
       @hint_code = @secret_code.shuffle
       @player = Player.new
     end

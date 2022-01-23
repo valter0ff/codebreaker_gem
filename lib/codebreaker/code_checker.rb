@@ -2,8 +2,6 @@ module Codebreaker
   class CodeChecker
     PLUS = '+'.freeze
     MINUS = '-'.freeze
-    MIN_DIGIT = 1
-    MAX_DIGIT = 6
     attr_reader :secret_code, :user_input
 
     def initialize(code, input)
@@ -31,7 +29,7 @@ module Codebreaker
 
     def check_minuses
       result = []
-      (MIN_DIGIT..MAX_DIGIT).each do |n|
+      (Validations::MIN_DIGIT..Validations::MAX_DIGIT).each do |n|
         next unless user_input.include?(n)
 
         match = [user_input.count(n), secret_code.count(n)].min
