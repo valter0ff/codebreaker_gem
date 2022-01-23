@@ -16,11 +16,11 @@ module Codebreaker
         end
 
         it 'replace right digits to 0 in secret_code instance variable' do
-          expect(codechecker.secret_code).to eq([1, 2, 0, 0])
+          expect(codechecker.secret_code).to eq([1, 2, nil, nil])
         end
 
         it 'replace right digits to 0 in user_input instance variable' do
-          expect(codechecker.user_input).to eq([2, 1, 0, 0])
+          expect(codechecker.user_input).to eq([2, 1, nil, nil])
         end
       end
 

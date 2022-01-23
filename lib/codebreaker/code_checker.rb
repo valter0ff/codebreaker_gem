@@ -22,8 +22,8 @@ module Codebreaker
       user_input.each_with_index do |x, i|
         next unless secret_code[i] == x
 
-        @secret_code[i] = 0
-        @user_input[i] = 0
+        @secret_code[i] = nil
+        @user_input[i] = nil
         result.push(PLUS)
       end
       result
