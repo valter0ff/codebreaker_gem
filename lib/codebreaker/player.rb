@@ -13,8 +13,8 @@ module Codebreaker
     end
 
     def get_difficulty(input)
-      @hints = DIFFICULTY_HASH[input.to_sym][:hints]
-      @attempts = DIFFICULTY_HASH[input.to_sym][:attempts]
+      @hints = DIFFICULTY_HASH.dig(input.to_sym, :hints)
+      @attempts = DIFFICULTY_HASH.dig(input.to_sym, :attempts)
       @difficulty = input
     end
   end
