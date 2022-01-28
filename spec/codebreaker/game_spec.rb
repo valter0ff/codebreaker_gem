@@ -9,10 +9,6 @@ module Codebreaker
 
     describe '#create_game_params' do
       context 'when player start a new game' do
-        it 'clear the secret_code variable after previous game' do
-          expect(game.secret_code.clear).to be_empty
-        end
-
         it 'creates a new secret_code' do
           expect(game.secret_code.size).to eq(Validations::CODE_SIZE)
         end
@@ -40,7 +36,7 @@ module Codebreaker
         let(:name_arg) { 'Ko' }
 
         it 'raise error if name have not passed a validation' do
-          expect { game.setup_name(name_arg) }.to raise_error(ValidationError)
+          expect { game.setup_name(name_arg) }.to raise_error(ValidationError, Validations::NAME_ERROR)
         end
       end
     end
@@ -60,7 +56,7 @@ module Codebreaker
         let(:guess_arg) { '4567789' }
 
         it 'raise error if user guess input have not passed a validation' do
-          expect { game.setup_user_guess(guess_arg) }.to raise_error(ValidationError)
+          expect { game.setup_user_guess(guess_arg) }.to raise_error(ValidationError, Validations::GUESS_ERROR)
         end
       end
     end
@@ -78,8 +74,8 @@ module Codebreaker
       context 'when input difficulty format is invalid' do
         let(:diff_arg) { 'easssy' }
 
-        it 'raise error if user guess input have not passed a validation' do
-          expect { game.setup_difficulty(diff_arg) }.to raise_error(ValidationError)
+        it 'raise error if difficulty format have not passed a validation' do
+          expect { game.setup_difficulty(diff_arg) }.to raise_error(ValidationError, Validations::DIFFICULTY_ERROR)
         end
       end
     end

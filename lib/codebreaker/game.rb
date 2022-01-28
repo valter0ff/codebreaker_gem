@@ -2,14 +2,8 @@ module Codebreaker
   class Game
     attr_reader :secret_code, :guess, :player, :hint_code
 
-    def initialize
-      @secret_code = []
-      @guess = []
-    end
-
     def create_game_params
-      @secret_code.clear
-      Validations::CODE_SIZE.times { @secret_code.push(rand(Validations::MIN_DIGIT..Validations::MAX_DIGIT)) }
+      @secret_code = Array.new(Validations::CODE_SIZE) { rand(Validations::MIN_DIGIT..Validations::MAX_DIGIT) }
       @hint_code = @secret_code.shuffle
       @player = Player.new
     end
