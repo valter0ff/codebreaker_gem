@@ -1,0 +1,30 @@
+require:
+  - rubocop-performance
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'vendor/bundle/**/*'
+    - 'codebreaker.gemspec'
+  TargetRubyVersion: 2.5
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/codebreaker/*.rb'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/codebreaker/*.rb'
+
+RSpec/MessageSpies:
+  EnforcedStyle: receive
+
+Layout/LineLength:
+  Max: 120
